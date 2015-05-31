@@ -1,0 +1,17 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="836" measuredH="107" mockupW="281" mockupH="75">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="643" y="32" w="-1" h="-1" measuredW="193" measuredH="75" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>About</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="555" y="45" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Main%26bm%3BMain.bmml%26bm%3BMain.bmml%26bm%3BMain.bmml</href>
+        <icon>%24ACCOUNT/assets/icon_back_nocircle.png%7Clarge</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C13%2C48%2C61%22%20href%3D%22Main.bmml%22%20alt%3D%22Main%22%20id%3D%221%22/%3E</map>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

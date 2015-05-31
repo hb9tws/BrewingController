@@ -1,0 +1,106 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1301" measuredH="747" mockupW="812" mockupH="730">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="569" y="17" w="-1" h="-1" measuredW="528" measuredH="75" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>Multi-Rest%20Mash</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="489" y="30" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Main%26bm%3BMain.bmml%26bm%3BMain.bmml%26bm%3BMain.bmml</href>
+        <icon>%24ACCOUNT/assets/icon_back_nocircle.png%7Clarge</icon>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C13%2C48%2C61%22%20href%3D%22Main.bmml%22%20alt%3D%22Main%22%20id%3D%221%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Canvas" x="489" y="186" w="320" h="152" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>6989903</color>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Title" x="522" y="232" w="-1" h="-1" measuredW="255" measuredH="75" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>22.5%20%B0C</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="489" y="136" w="-1" h="-1" measuredW="284" measuredH="40" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Actual%20Temperature</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Canvas" x="852" y="185" w="311" h="152" measuredW="100" measuredH="70" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13369344</color>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Title" x="885" y="231" w="-1" h="-1" measuredW="248" measuredH="75" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>72</size>
+        <text>55.0%20%B0C</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="852" y="136" w="-1" h="-1" measuredW="233" measuredH="40" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>SetTemperature</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="1188" y="136" w="-1" h="-1" measuredW="113" measuredH="40" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Heating</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Icon" x="1212" y="233" w="-1" h="-1" measuredW="64" measuredH="64" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13576743</color>
+        <icon>VLinesIcon%7Cxlarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::RoundButton" x="1210" y="295" w="71" h="43" measuredW="32" measuredH="32" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderColor>0</borderColor>
+        <color>10066329</color>
+        <shape>rectangle</shape>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="489" y="396" w="320" h="80" measuredW="97" measuredH="40" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Start</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="489" y="523" w="-1" h="-1" measuredW="126" measuredH="40" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Program%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::CheckBoxGroup" x="489" y="587" w="-1" h="-1" measuredW="170" measuredH="160" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>%5Bx%5D%20Mashing%20in%0A%5B%5D%20Protein%20rest%0A%5B%5D%20Maltose%20rest%0A%5B%5D%20Dextrose%20rest%0A%5B%5D%20Mashing%20out</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::ProgressBar" x="852" y="578" w="304" h="40" measuredW="100" measuredH="20" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <indeterminate>false</indeterminate>
+        <scrollBarValue>33</scrollBarValue>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Label" x="852" y="523" w="-1" h="-1" measuredW="129" measuredH="40" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Progress</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="852" y="396" w="311" h="80" measuredW="125" measuredH="40" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Cancel</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

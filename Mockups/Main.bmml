@@ -1,0 +1,63 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1038" measuredH="594" mockupW="640" mockupH="554">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Title" x="398" y="40" w="640" h="-1" measuredW="606" measuredH="75" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <size>72</size>
+        <text>Brewing%20Controller</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="398" y="161" w="274" h="191" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16776960</color>
+        <href>Temperature%20Control%26bm%3BTemperature%20Control.bmml%26bm%3BTemperature%20Control.bmml%26bm%3BTemperature%20Control.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C121%2C274%2C312%22%20href%3D%22Temperature%2520Control.bmml%22%20alt%3D%22Temperature%20Control%22%20id%3D%221%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Canvas" x="727" y="161" w="274" h="191" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>13576743</color>
+        <href>Multi-Rest%20Mash%26bm%3BMulti-Rest%20Mash.bmml%26bm%3BMulti-Rest%20Mash.bmml%26bm%3BMulti-Rest%20Mash.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22329%2C121%2C603%2C312%22%20href%3D%22Multi-Rest%2520Mash.bmml%22%20alt%3D%22Multi-Rest%20Mash%22%20id%3D%222%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Canvas" x="398" y="403" w="274" h="191" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>40463</color>
+        <href>Setup%26bm%3BSetup.bmml%26bm%3BSetup.bmml%26bm%3BSetup.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C363%2C274%2C554%22%20href%3D%22Setup.bmml%22%20alt%3D%22Setup%22%20id%3D%223%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Canvas" x="727" y="403" w="274" h="191" measuredW="100" measuredH="70" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>2848996</color>
+        <href>About%26bm%3BAbout.bmml%26bm%3BAbout.bmml%26bm%3BAbout.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22329%2C363%2C603%2C554%22%20href%3D%22About.bmml%22%20alt%3D%22About%22%20id%3D%224%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Label" x="415" y="305" w="240" h="-1" measuredW="223" measuredH="32" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Temperature%20Control</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="746" y="305" w="240" h="-1" measuredW="176" measuredH="32" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Multi-Rest%20Mash</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Label" x="415" y="547" w="240" h="-1" measuredW="66" measuredH="32" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>Setup</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="746" y="547" w="240" h="-1" measuredW="65" measuredH="32" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>24</size>
+        <text>About</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
