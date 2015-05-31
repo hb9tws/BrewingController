@@ -149,7 +149,10 @@ ClientBin/
 *~
 *.dbmdl
 *.[Pp]ublish.xml
-*.pfx
+
+# This is a demo project, so we will also put the temp key on Git
+# *.pfx
+
 *.publishsettings
 
 # RIA/Silverlight projects
