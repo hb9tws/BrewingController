@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,12 +28,12 @@ namespace BrewingController.ViewModel
 
         public void Activate(object parameter)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("MashProgram activated");
         }
 
         public void Deactivate(object parameter)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine("MashProgram deactivated");
         }
     }
 }

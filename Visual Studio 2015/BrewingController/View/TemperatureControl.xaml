@@ -1,4 +1,4 @@
-﻿<Page
+﻿<local:BindablePage
     x:Class="BrewingController.TemperatureControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -48,7 +48,9 @@
                 <StackPanel Orientation="Vertical" Margin="0,0,150,0">
                     <TextBlock Text="Actual Temperature" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10"/>
                     <Grid Width="280" Height="160" Background="#99008000">
-                        <TextBlock FontSize="48" Text="22.0 °C" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Semibold" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontSize="48" Text="{Binding Temperature}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Semibold" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}"/>
+                        </StackPanel>
                     </Grid>
                 </StackPanel>
 
@@ -106,4 +108,4 @@
         </StackPanel>
 
     </Grid>
-</Page>
+</local:BindablePage>

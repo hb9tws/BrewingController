@@ -191,7 +191,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
+    <ProjectReference Include="..\BrewingControllerInterfaces\BrewingControllerInterfaces.csproj">
+      <Project>{55ad35b0-1358-4f35-b5d5-f409e4097678}</Project>
+      <Name>BrewingControllerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS18B20\DS18B20.csproj">
+      <Project>{d8aa5dee-05e4-492a-b7c7-297e6e5f80ce}</Project>
+      <Name>DS18B20</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
@@ -203,6 +210,9 @@
     <SDKReference Include="WindowsIoT, Version=10.0.10069.0">
       <Name>Windows IoT Extension SDK</Name>
     </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

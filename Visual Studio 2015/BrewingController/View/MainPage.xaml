@@ -30,7 +30,7 @@
                         <!-- Bind command to grid's event "Tapped" without using code behind -->
                         <trigger:Interaction.Behaviors>
                             <tcore:EventTriggerBehavior EventName="Tapped">
-                                <tcore:InvokeCommandAction Command="{Binding AboutCommand, Mode=OneWay}" />
+                                <tcore:InvokeCommandAction Command="{Binding MultiRestMashCommand, Mode=OneWay}" />
                             </tcore:EventTriggerBehavior>
                         </trigger:Interaction.Behaviors>
                         <TextBlock VerticalAlignment="Bottom" Text="Multi-Rest Mash" Margin="20" FontSize="48" Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"/>
@@ -42,7 +42,7 @@
                         <!-- Bind command to grid's event "Tapped" without using code behind -->
                         <trigger:Interaction.Behaviors>
                             <tcore:EventTriggerBehavior EventName="Tapped">
-                                <tcore:InvokeCommandAction Command="{Binding AboutCommand, Mode=OneWay}" />
+                                <tcore:InvokeCommandAction Command="{Binding MashProgamCommand, Mode=OneWay}" />
                             </tcore:EventTriggerBehavior>
                         </trigger:Interaction.Behaviors>
                         <TextBlock VerticalAlignment="Bottom" Text="Mash Program" Margin="20" FontSize="48" Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"/>

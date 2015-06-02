@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
@@ -74,12 +75,12 @@ namespace BrewingController.ViewModel
 
         public void Activate(object parameter)
         {
-            // throw new System.NotImplementedException();
+            Debug.WriteLine("MainPage activated");
         }
 
         public void Deactivate(object parameter)
         {
-            // throw new System.NotImplementedException();
+            Debug.WriteLine("MainPage deactivated");
         }
     }
 }

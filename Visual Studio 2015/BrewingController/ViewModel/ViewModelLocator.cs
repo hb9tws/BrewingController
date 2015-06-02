@@ -12,6 +12,8 @@
   See http://www.galasoft.ch/mvvm
 */
 
+using BrewingController.Interfaces;
+using BrewingController.Sensor;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
@@ -47,6 +49,10 @@ namespace BrewingController.ViewModel
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             // SimpleIoc.Default.Register<IDialogService, DialogService>();
+            
+            
+
+            SimpleIoc.Default.Register<ITemperatureSensor, DS18B20>();
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();

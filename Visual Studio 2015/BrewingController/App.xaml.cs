@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using GalaSoft.MvvmLight.Threading;
 
 // The Blank Application template is documented at http://go.microsoft.com/fwlink/?LinkId=402347&clcid=0x409
 
@@ -79,6 +80,10 @@ namespace BrewingController
             }
             // Ensure the current window is active
             Window.Current.Activate();
+
+
+            // Initialize DispatcherHelper here
+            DispatcherHelper.Initialize();
         }
 
         /// <summary>
