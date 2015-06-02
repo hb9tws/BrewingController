@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Runtime.InteropServices.ComTypes;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using BrewingController.Interfaces;
 using BrewingController.Sensor;
@@ -23,7 +25,7 @@ namespace BrewingController.ViewModel
             set
             {
                 if (Math.Abs(value - _temperature) < 0.1) return;
-                value = _temperature;
+                _temperature = value;
                 RaisePropertyChanged();
             }
         }
@@ -67,7 +69,6 @@ namespace BrewingController.ViewModel
             {
                 Temperature = await _sensor.Measure();
             }
-
         }
 
 

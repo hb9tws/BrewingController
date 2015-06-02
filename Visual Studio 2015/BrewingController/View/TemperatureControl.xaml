@@ -7,9 +7,14 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:view="using:BrewingController.View"
     mc:Ignorable="d"
     DataContext="{Binding TemperatureControl, Source={StaticResource Locator}}" >
-
+    
+    <Page.Resources>
+      <view:DoubleToCelsiusConverter x:Key="D2C" />    
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
@@ -48,9 +53,7 @@
                 <StackPanel Orientation="Vertical" Margin="0,0,150,0">
                     <TextBlock Text="Actual Temperature" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10"/>
                     <Grid Width="280" Height="160" Background="#99008000">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontSize="48" Text="{Binding Temperature}" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Segoe UI Semibold" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}"/>
-                        </StackPanel>
+                            <TextBlock FontSize="48" Text="{Binding Temperature, Converter={StaticResource D2C}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}"/>
                     </Grid>
                 </StackPanel>
 

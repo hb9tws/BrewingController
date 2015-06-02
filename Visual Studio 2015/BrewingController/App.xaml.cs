@@ -80,10 +80,6 @@ namespace BrewingController
             }
             // Ensure the current window is active
             Window.Current.Activate();
-
-
-            // Initialize DispatcherHelper here
-            DispatcherHelper.Initialize();
         }
 
         /// <summary>
