@@ -30,11 +30,72 @@ namespace BrewingController.ViewModel
             }
         }
 
+
+        private double _setTemperature = 40.0;
+
+        public double SetTemperature
+        {
+            get { return _setTemperature; }
+            set
+            {
+                if (Math.Abs(value - _setTemperature) < 0.1) return;
+                _setTemperature = value;
+                RaisePropertyChanged();
+            }
+        }
+
+
+
+
+        private ActuatorEnum _actuator = ActuatorEnum.HeatingDevice;
+
+        public ActuatorEnum Actuator
+        {
+            get { return _actuator; }
+            set
+            {
+                if (value == _actuator) return;
+                _actuator = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private ControlEnum _control = ControlEnum.Off;
+
+        public ControlEnum Control
+        {
+            get { return _control; }
+            set
+            {
+                if (value == _control) return;
+                _control = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private ActuatorStateEnum _actuatorState = ActuatorStateEnum.Unknown;
+
+        public ActuatorStateEnum ActuatorState
+        {
+            get { return _actuatorState; }
+            set
+            {
+                if (value == _actuatorState) return;
+                _actuatorState = value;
+                RaisePropertyChanged();
+            }
+        }
+
         private readonly ITemperatureSensor _sensor;
 
         private readonly INavigationService _navigationService;
 
         public RelayCommand BackCommand { get; set; }
+
+        public RelayCommand TemperatureUpCommand { get; set; }
+
+        public RelayCommand TemperatureDownCommand { get; set; }
+
 
         public TemperatureControlViewModel(INavigationService navi, ITemperatureSensor sensor)
         {
@@ -44,6 +105,9 @@ namespace BrewingController.ViewModel
                 _navigationService.GoBack();
             });
 
+            TemperatureUpCommand = new RelayCommand(IncreaseSetTemperature);
+            TemperatureDownCommand = new RelayCommand(DecreaseSetTemperature);
+
             if (IsInDesignMode)
             {
                 // code generating sample data for ui design
@@ -52,6 +116,9 @@ namespace BrewingController.ViewModel
             {
                 _sensor = sensor;
             }
+
+            Control = ControlEnum.Off;
+            Actuator = ActuatorEnum.HeatingDevice;
 
             measurementTimer = new DispatcherTimer();
             measurementTimer.Interval = TimeSpan.FromMilliseconds(1000);
@@ -68,6 +135,83 @@ namespace BrewingController.ViewModel
             else
             {
                 Temperature = await _sensor.Measure();
+                RunTemperatureControl();
+            }
+        }
+
+        private void RunTemperatureControl()
+        {
+            switch (Control)
+            {
+                case ControlEnum.Off:
+                    ActuatorState = ActuatorStateEnum.Off;
+                    if (Actuator == ActuatorEnum.HeatingDevice)
+                    {
+                        Debug.WriteLine("Heating device switched off");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Cooling device switched off");
+                    }
+                    break;
+
+                case ControlEnum.On:
+                    ActuatorState = ActuatorStateEnum.On;
+                    if (Actuator == ActuatorEnum.HeatingDevice)
+                    {
+                        Debug.WriteLine("Heating device switched on");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Cooling device switched on");
+                    }
+                    break;
+
+                case ControlEnum.Automatic:
+
+                    // Later this should go into the model, for now we keep it here
+
+                    double hysteresis = 1.0;
+
+                    if (Actuator == ActuatorEnum.HeatingDevice)
+                    {
+                        if ( ActuatorState == ActuatorStateEnum.On && 
+                             Temperature > SetTemperature + hysteresis)
+                        {
+                            ActuatorState = ActuatorStateEnum.Off;
+                            Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Heating device switched off",
+                                            Temperature, SetTemperature);
+                        }
+                        else if ( ActuatorState == ActuatorStateEnum.Off && 
+                                  Temperature < SetTemperature - hysteresis )
+                        {
+                            ActuatorState = ActuatorStateEnum.On;
+                            Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Heating device switched on",
+                                            Temperature, SetTemperature);
+                        }
+                    }
+                    else
+                    {
+                        if (ActuatorState == ActuatorStateEnum.On &&
+                             Temperature < SetTemperature - hysteresis)
+                        {
+                            ActuatorState = ActuatorStateEnum.Off;
+                            Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Cooling device switched off",
+                                            Temperature, SetTemperature);
+                        }
+                        else if (ActuatorState == ActuatorStateEnum.Off &&
+                                  Temperature > SetTemperature + hysteresis)
+                        {
+                            ActuatorState = ActuatorStateEnum.On;
+                            Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Cooling device switched on",
+                                             Temperature, SetTemperature);
+                        }
+                    }
+                    break;
+
+                default:
+                    ActuatorState = ActuatorStateEnum.Unknown;
+                    break;
             }
         }
 
@@ -85,6 +229,16 @@ namespace BrewingController.ViewModel
         {
             Debug.WriteLine("TemperatureControl deactivated");
             measurementTimer.Stop();
+        }
+
+        private void IncreaseSetTemperature()
+        {
+            if (SetTemperature < 99 ) SetTemperature += 1.0;
+        }
+
+        private void DecreaseSetTemperature()
+        {
+            if (SetTemperature > 4 ) SetTemperature -= 1.0;
         }
     }
 }

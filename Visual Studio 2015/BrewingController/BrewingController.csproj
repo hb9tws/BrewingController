@@ -97,6 +97,9 @@
     <Compile Include="BindablePage.cs" />
     <Compile Include="INavigable.cs" />
     <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\ActuatorEnum.cs" />
+    <Compile Include="ViewModel\ActuatorStateEnum.cs" />
+    <Compile Include="ViewModel\ControlEnum.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\MashProgramViewModel.cs" />
     <Compile Include="ViewModel\MultiRestMashViewModel.cs" />
@@ -106,7 +109,9 @@
     <Compile Include="View\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ActuatorStateToColorBrush.cs" />
     <Compile Include="View\DoubleToCelsiusConverter.cs" />
+    <Compile Include="View\EnumToBooleanConverter.cs" />
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
