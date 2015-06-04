@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{55AD35B0-1358-4F35-B5D5-F409E4097678}</ProjectGuid>
+    <ProjectGuid>{CC661B50-9D27-4317-96DB-3EFA23DBEA06}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BrewingController.Interfaces</RootNamespace>
-    <AssemblyName>BrewingControllerInterfaces</AssemblyName>
+    <RootNamespace>DS1821</RootNamespace>
+    <AssemblyName>DS1821</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10069.0</TargetPlatformVersion>
@@ -109,9 +109,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="II2CBridge.cs" />
-    <Compile Include="IRelais.cs" />
-    <Compile Include="ITemperatureSensor.cs" />
+    <Compile Include="DS1821.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +124,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BrewingControllerInterfaces\BrewingControllerInterfaces.csproj">
+      <Project>{55ad35b0-1358-4f35-b5d5-f409e4097678}</Project>
+      <Name>BrewingControllerInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsIoT, Version=10.0.10069.0">
+      <Name>Windows IoT Extension SDK</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

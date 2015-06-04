@@ -24,7 +24,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\ARM\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;DS1821,NETFX_CORE;WINDOWS_UAP;CODE_ANALYSIS</DefineConstants>
     <NoWarn>;2008</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>ARM</PlatformTarget>
@@ -200,6 +200,10 @@
     <ProjectReference Include="..\BrewingControllerInterfaces\BrewingControllerInterfaces.csproj">
       <Project>{55ad35b0-1358-4f35-b5d5-f409e4097678}</Project>
       <Name>BrewingControllerInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DS1821\DS1821.csproj">
+      <Project>{cc661b50-9d27-4317-96db-3efa23dbea06}</Project>
+      <Name>DS1821</Name>
     </ProjectReference>
     <ProjectReference Include="..\DS18B20\DS18B20.csproj">
       <Project>{d8aa5dee-05e4-492a-b7c7-297e6e5f80ce}</Project>

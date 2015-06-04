@@ -87,6 +87,8 @@ namespace BrewingController.ViewModel
         }
 
         private readonly ITemperatureSensor _sensor;
+        private readonly IRelais _relais;
+        private readonly II2CBridge _bridge;
 
         private readonly INavigationService _navigationService;
 
@@ -97,9 +99,13 @@ namespace BrewingController.ViewModel
         public RelayCommand TemperatureDownCommand { get; set; }
 
 
-        public TemperatureControlViewModel(INavigationService navi, ITemperatureSensor sensor)
+        public TemperatureControlViewModel(INavigationService navi, ITemperatureSensor sensor, IRelais relais, II2CBridge bridge)
         {
             _navigationService = navi;
+            _sensor = sensor;
+            _relais = relais;
+            _bridge = bridge;
+
             BackCommand = new RelayCommand(() =>
             {
                 _navigationService.GoBack();
@@ -107,16 +113,7 @@ namespace BrewingController.ViewModel
 
             TemperatureUpCommand = new RelayCommand(IncreaseSetTemperature);
             TemperatureDownCommand = new RelayCommand(DecreaseSetTemperature);
-
-            if (IsInDesignMode)
-            {
-                // code generating sample data for ui design
-            }
-            else
-            {
-                _sensor = sensor;
-            }
-
+            
             Control = ControlEnum.Off;
             Actuator = ActuatorEnum.HeatingDevice;
 
@@ -145,6 +142,7 @@ namespace BrewingController.ViewModel
             {
                 case ControlEnum.Off:
                     ActuatorState = ActuatorStateEnum.Off;
+                    _relais.Off();
                     if (Actuator == ActuatorEnum.HeatingDevice)
                     {
                         Debug.WriteLine("Heating device switched off");
@@ -157,6 +155,7 @@ namespace BrewingController.ViewModel
 
                 case ControlEnum.On:
                     ActuatorState = ActuatorStateEnum.On;
+                    _relais.On();
                     if (Actuator == ActuatorEnum.HeatingDevice)
                     {
                         Debug.WriteLine("Heating device switched on");
@@ -179,6 +178,7 @@ namespace BrewingController.ViewModel
                              Temperature > SetTemperature + hysteresis)
                         {
                             ActuatorState = ActuatorStateEnum.Off;
+                            _relais.Off();
                             Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Heating device switched off",
                                             Temperature, SetTemperature);
                         }
@@ -186,6 +186,7 @@ namespace BrewingController.ViewModel
                                   Temperature < SetTemperature - hysteresis )
                         {
                             ActuatorState = ActuatorStateEnum.On;
+                            _relais.On();
                             Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Heating device switched on",
                                             Temperature, SetTemperature);
                         }
@@ -196,6 +197,7 @@ namespace BrewingController.ViewModel
                              Temperature < SetTemperature - hysteresis)
                         {
                             ActuatorState = ActuatorStateEnum.Off;
+                            _relais.Off();
                             Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Cooling device switched off",
                                             Temperature, SetTemperature);
                         }
@@ -203,6 +205,7 @@ namespace BrewingController.ViewModel
                                   Temperature > SetTemperature + hysteresis)
                         {
                             ActuatorState = ActuatorStateEnum.On;
+                            _relais.On();
                             Debug.WriteLine("Temperature = {0:F1} / Setpoint {1:F1} -> Cooling device switched on",
                                              Temperature, SetTemperature);
                         }
@@ -220,7 +223,7 @@ namespace BrewingController.ViewModel
         {
             Debug.WriteLine("TemperatureControl activated");
 
-            _sensor.Initialize();
+            _bridge.Initialize();
             measurementTimer.Start();
 
         }

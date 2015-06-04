@@ -49,10 +49,22 @@ namespace BrewingController.ViewModel
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
 
             // SimpleIoc.Default.Register<IDialogService, DialogService>();
-            
-            
 
-            SimpleIoc.Default.Register<ITemperatureSensor, DS18B20>();
+#if DS18B20
+
+            SimpleIoc.Default.Register<DS18B20>(() => new DS18B20(), "brewingchip", true);
+            SimpleIoc.Default.Register<II2CBridge>(() => SimpleIoc.Default.GetInstance<DS18B20>("brewingchip"));
+            SimpleIoc.Default.Register<ITemperatureSensor>(() => SimpleIoc.Default.GetInstance<DS18B20>("brewingchip"));
+            SimpleIoc.Default.Register<IRelais>(() => SimpleIoc.Default.GetInstance<DS18B20>("brewingchip"));
+#endif
+
+#if DS1821
+
+            SimpleIoc.Default.Register<DS1821>(() => new DS1821(), "i2cbridge", true);
+            SimpleIoc.Default.Register<II2CBridge>(() => SimpleIoc.Default.GetInstance<DS1821>("i2cbridge"));
+            SimpleIoc.Default.Register<ITemperatureSensor>(() => SimpleIoc.Default.GetInstance<DS1821>("i2cbridge"));
+            SimpleIoc.Default.Register<IRelais>(() => SimpleIoc.Default.GetInstance<DS1821>("i2cbridge"));
+#endif
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();
@@ -60,6 +72,9 @@ namespace BrewingController.ViewModel
             SimpleIoc.Default.Register<MashProgramViewModel>();
             SimpleIoc.Default.Register<MultiRestMashViewModel>();
         }
+  
+
+
 
         private INavigationService CreateNavigationService()
         {

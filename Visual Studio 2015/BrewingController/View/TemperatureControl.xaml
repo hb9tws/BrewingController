@@ -52,12 +52,16 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="70">
 
             <StackPanel Orientation="Horizontal" >
-                <StackPanel Orientation="Vertical" Margin="0,0,150,0">
+                <StackPanel Orientation="Vertical" >
                     <TextBlock Text="Actual Temperature" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10"/>
                     <Grid Width="280" Height="160" Background="#99008000">
                         <TextBlock FontSize="48" Text="{Binding Temperature, Converter={StaticResource D2C}}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" Foreground="{ThemeResource SystemControlForegroundChromeBlackMediumBrush}"/>
                     </Grid>
                 </StackPanel>
+
+                <Ellipse Height="30" Width="30" Margin="-40,65,180,0" Fill="{Binding ActuatorState, ConverterParameter=BrewingController.ViewModel.ActuatorStateEnum.On, Converter={StaticResource ActuatorStateToColor}, Mode=OneWay}" VerticalAlignment="Top" />
+
+
                 <StackPanel Orientation="Vertical" >
                     <TextBlock Text="Set Temperature" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10" />
                     <StackPanel Orientation="Horizontal">
@@ -79,14 +83,12 @@
 
             <StackPanel Orientation="Horizontal" Margin="0,70,0,0">
 
-                <StackPanel Orientation="Vertical" Margin="0,0,00,0" Width="200" >
-                    <TextBlock Text="Control" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Vertical" Margin="0,0,150,0" Width="280" >
+                    <TextBlock Text="Actuator Control" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10"/>
                     <RadioButton FontSize="24" Padding="12,-2,0,0" Content="Off" GroupName="Control" IsChecked="{Binding Control, ConverterParameter=BrewingController.ViewModel.ControlEnum.Off , Converter={StaticResource EnumToBoolean}, Mode=TwoWay}" />
                     <RadioButton FontSize="24" Padding="12,-2,0,0" Content="On"  GroupName="Control" IsChecked="{Binding Control, ConverterParameter=BrewingController.ViewModel.ControlEnum.On, Converter={StaticResource EnumToBoolean}, Mode=TwoWay}" />
                     <RadioButton FontSize="24" Padding="12,-2,0,0" Content="Automatic" GroupName="Control" IsChecked="{Binding Control, ConverterParameter=BrewingController.ViewModel.ControlEnum.Automatic, Converter={StaticResource EnumToBoolean}, Mode=TwoWay}" />
                 </StackPanel>
-
-                <Ellipse Height="36" Width="36" Margin="30,6,170,0" Fill="{Binding ActuatorState, ConverterParameter=BrewingController.ViewModel.ActuatorStateEnum.On, Converter={StaticResource ActuatorStateToColor}, Mode=OneWay}" VerticalAlignment="Top" />
 
                 <StackPanel Orientation="Vertical" Width="280">
                     <TextBlock Text="Actuator Type" FontSize="32" HorizontalAlignment="Left" Margin="0,0,0,10" />

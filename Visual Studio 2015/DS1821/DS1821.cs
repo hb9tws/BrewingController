@@ -7,13 +7,12 @@ using BrewingController.Interfaces;
 
 namespace BrewingController.Sensor
 {
-    public class DS18B20 : II2CBridge, ITemperatureSensor, IRelais
-
+    public class DS1821 : II2CBridge, ITemperatureSensor, IRelais
     {
-        private const byte I2C_ADDRESS = 0x24; // 7-bit I2C address of the I2C to 1Wire bridge for the DS18B20 sensor
+        private const byte I2C_ADDRESS = 0x25; // 7-bit I2C address of the I2C to 1Wire bridge for the DS18B20 sensor
 
-        private I2cDevice _i2CBridge ;
-        private I2cConnectionSettings _i2CConnectionSettings;
+        private I2cDevice _i2CBridge;
+        private I2cConnectionSettings _i2CConnectionSettings = null;
 
         private readonly object _lock = new object();
 
@@ -73,7 +72,7 @@ namespace BrewingController.Sensor
 
         public void On()
         {
-            if (Ready() )
+            if (Ready())
             {
                 byte[] commandBuffer = new byte[2];
                 commandBuffer[0] = 8;
@@ -85,8 +84,8 @@ namespace BrewingController.Sensor
 
         public void Off()
         {
-            if (Ready() )
-            { 
+            if (Ready())
+            {
                 byte[] commandBuffer = new byte[2];
                 commandBuffer[0] = 8;
                 commandBuffer[1] = 0;
@@ -100,16 +99,24 @@ namespace BrewingController.Sensor
             double result = Double.NaN;
 
             byte[] commandBuffer = new byte[1];
+            byte[] stateBuffer = new byte[1];
             byte[] resultBuffer = new byte[4];
 
             /* Step 1: Trigger measurement
              */
-            commandBuffer[0] = 1; 
-            _i2CBridge.Write(commandBuffer); 
+            commandBuffer[0] = 1;
+            _i2CBridge.Write(commandBuffer);
 
-            /* Step 2: Wait 800ms to allow sufficient time for the 12-bit ADC converion on DS18B20
+            /* Step 2: Wait some time and check if measurement is ready
              */
-            await Task.Delay(800);
+            do
+            {
+                await Task.Delay(200);
+                commandBuffer[0] = 2;
+                _i2CBridge.Write(commandBuffer);
+                _i2CBridge.Read(stateBuffer);
+
+            } while (stateBuffer[0] != 1);
 
             /* Step 3: Read result
              */
@@ -121,13 +128,16 @@ namespace BrewingController.Sensor
              */
             if (resultBuffer[0] == 1)
             {
+                // Calculate temperature :-)
+                double remainder = resultBuffer[3];
+                double count_per_c = resultBuffer[2];
                 double temperature = resultBuffer[1];
-                temperature = 16 * (0x0F & resultBuffer[2]) + temperature / 16;
-                if ((resultBuffer[2] & 0x10) == 0x10) temperature = -1 * temperature;
+
+                temperature = temperature - 0.5 + (count_per_c - remainder) / count_per_c;
                 result = temperature;
             }
 
-            Debug.WriteLine("Temperature measured from DS18B20 is {0} °C", result);
+            Debug.WriteLine("Temperature measured from DS1821 is {0:F1} °C", result);
             return result;
         }
     }
