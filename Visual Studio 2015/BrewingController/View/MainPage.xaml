@@ -16,7 +16,7 @@
                <TextBlock  Text="Brewing Controller" FontSize="64" Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" />
                
                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                   <Grid Width="500" Height="300" Background="#7FFFFF00"  >
+                   <Grid Width="500" Height="300" Background="#7FFF2E00"  >
                        <!-- Bind command to grid's event "Tapped" without using code behind -->
                        <trigger:Interaction.Behaviors>
                             <tcore:EventTriggerBehavior EventName="Tapped">
@@ -38,7 +38,7 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
-                <Grid Width="500" Height="300" Background="#7FFF0000">
+                <Grid Width="500" Height="300" Background="#7F003AFF">
                         <!-- Bind command to grid's event "Tapped" without using code behind -->
                         <trigger:Interaction.Behaviors>
                             <tcore:EventTriggerBehavior EventName="Tapped">
@@ -48,7 +48,7 @@
                         <TextBlock VerticalAlignment="Bottom" Text="Mash Program" Margin="20" FontSize="48" Foreground="{ThemeResource ApplicationSecondaryForegroundThemeBrush}"/>
                 </Grid>
 
-                <Grid Width="500" Height="300" Background="#7F0000FF" Margin="30,0,0,0">
+                <Grid Width="500" Height="300" Background="#7FFFF300" Margin="30,0,0,0">
                         <!-- Bind command to grid's event "Tapped" without using code behind -->
                         <trigger:Interaction.Behaviors>
                             <tcore:EventTriggerBehavior EventName="Tapped">
