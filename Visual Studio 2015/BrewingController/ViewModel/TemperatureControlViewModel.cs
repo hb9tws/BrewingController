@@ -1,14 +1,9 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Runtime.InteropServices.ComTypes;
-using Windows.UI.Core;
 using Windows.UI.Xaml;
 using BrewingController.Interfaces;
-using BrewingController.Sensor;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Threading;
 using GalaSoft.MvvmLight.Views;
 
 namespace BrewingController.ViewModel
