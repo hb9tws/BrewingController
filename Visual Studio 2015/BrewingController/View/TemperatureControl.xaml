@@ -10,7 +10,7 @@
     xmlns:view="using:BrewingController.View"
     xmlns:viewModel="using:BrewingController.ViewModel"
     mc:Ignorable="d"
-    DataContext="{Binding TemperatureControl, Source={StaticResource Locator}}" >
+    DataContext="{Binding TemperatureControl, Source={StaticResource Locator}}" Height="720.219" Width="1239.675" >
 
     <Page.Resources>
         <view:DoubleToCelsiusConverter x:Key="D2C" />

@@ -5,12 +5,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:brewingController="using:BrewingController"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     DataContext="{Binding MashProgram, Source={StaticResource Locator}}" >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel Orientation="Vertical" Margin="50">
-            <TextBlock  Text="Mash Program" FontSize="64" Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" />
+
+            <TextBlock  Text="Brewing Controller" FontSize="48" Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" />
+
+
+
+            <TextBlock  Text="Mash Program" FontSize="32" Foreground="{ThemeResource ApplicationHeaderForegroundThemeBrush}" />
             <Button Content="Back" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="83" FontSize="32" Command="{Binding BackCommand, Mode=OneWay }" />
         </StackPanel>
     </Grid>
